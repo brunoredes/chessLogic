@@ -44,6 +44,19 @@ public class Board {
 		piece.position = position; // posição da peça é acessível diretamente, pois é protected
 	}
 
+	public Piece removePiece(Position position) {
+		if (!positionExists(position)) {
+			throw new BoardException("There is already a piece on position " + position);
+		}
+		if (piece(position) == null) {
+			return null;
+		}
+		Piece aux = piece(position);
+		aux.position = null; //variavel que remove peça
+		pieces[position.getRow()][position.getColumn()] = null;//na matriz de peça, na posição que está sendo removido a peça
+				return aux;												//agora vai ser null, indicando que nao tem mais peça na posição indicada
+	}
+
 	private boolean positionExists(int row, int column) {// vai ter momento que vai ser mais facil testar pela row/colum
 		return row >= 0 && row < rows && column >= 0 && column < columns;
 	}
