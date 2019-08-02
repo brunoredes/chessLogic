@@ -21,8 +21,12 @@ public class Program {
 				System.out.println();
 				System.out.print("Source: ");// posição de origem
 				ChessPosition source = UI.readChessPosition(sc);
-				System.out.println();
 
+				boolean[][] possibleMoves = chessMatch.possibleMoves(source);
+				UI.clearScreen();
+				UI.printBoard(chessMatch.getPieces(), possibleMoves);// responsavel por imprimir colorido as posições de
+																		// movimento
+				System.out.println();
 				System.out.println("Target: ");
 				ChessPosition target = UI.readChessPosition(sc);
 
@@ -30,8 +34,7 @@ public class Program {
 			} catch (ChessException e) {
 				System.out.println(e.getMessage());
 				sc.nextLine();
-			}
-			catch (InputMismatchException e) {
+			} catch (InputMismatchException e) {
 				System.out.println(e.getMessage());
 				sc.nextLine();
 			}
