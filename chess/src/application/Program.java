@@ -17,7 +17,7 @@ public class Program {
 		while (true) {
 			try {
 				UI.clearScreen();// limpa a tela toda vez que o while rodar
-				UI.printBoard(chessMatch.getPieces());// metodo que vai receber a matriz de peças da partida;
+				UI.printMatch(chessMatch);// metodo que vai receber a matriz de peças da partida;
 				System.out.println();
 				System.out.print("Source: ");// posição de origem
 				ChessPosition source = UI.readChessPosition(sc);
