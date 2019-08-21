@@ -8,13 +8,17 @@ public abstract class ChessPiece extends Piece {
 
 	private Color color;
 
-	public ChessPiece(Board board, Color color) {// o board repassa o construtor p/ superClasse
-		super(board);// construtor da classe Piece
+	public ChessPiece(Board board, Color color) {
+		super(board);
 		this.color = color;
 	}
 
 	public Color getColor() {
 		return color;
+	}
+	
+	public ChessPosition getChessPosition() {
+		return ChessPosition.fromPosition(position);
 	}
 	
 	protected boolean isThereOpponentPiece(Position position) {
